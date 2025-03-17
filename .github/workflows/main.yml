@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt   # Only include this if you have dependencies
 
       - name: Run the Python script
-        run: approval.py   # Replace with your script filename
+        run: python approval.py   # Replace with your script filename
       
       - name: Commit and push changes
         run: |
