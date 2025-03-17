@@ -12,3 +12,6 @@ trends = pd.DataFrame(data['trends']['kalmanSmooth'])
 # Combine trends data
 trends_parties = pd.DataFrame(trends['parties'].tolist())
 full_trends = pd.concat([trends, trends_parties], axis=1).drop(columns=['parties'])
+
+output_path = "data/approval-rating-UK.csv"
+full_trends.to_csv(output_path, index=False)
