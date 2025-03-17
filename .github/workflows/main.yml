@@ -6,8 +6,10 @@ on:
   workflow_dispatch:        # Allows manual triggering (optional but recommended)
 
 jobs:
-  run-script:
-    runs-on: ubuntu-latest  # Latest stable Ubuntu environment
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # Grants write access for pushing changes
 
     steps:
       - name: Checkout code
