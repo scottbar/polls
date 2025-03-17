@@ -23,4 +23,4 @@ starmer
 
 
 output_path = "approval-rating-UK.csv"
-starmer.to_csv(output_path, index=False)
+starmer.to_csv(output_path)
