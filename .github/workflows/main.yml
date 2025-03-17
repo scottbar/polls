@@ -25,3 +25,11 @@ jobs:
 
       - name: Run the Python script
         run: approval.py   # Replace with your script filename
+      
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Automated update: CSV file generated on $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git push  
