@@ -1,0 +1,27 @@
+name: Daily Python Script
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # Runs daily at 6 AM UTC
+  workflow_dispatch:        # Allows manual triggering (optional but recommended)
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest  # Latest stable Ubuntu environment
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4   # Pulls your repo code
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'    # Use the Python version your script requires
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt   # Only include this if you have dependencies
+
+      - name: Run the Python script
+        run: approval.py   # Replace with your script filename
