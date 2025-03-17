@@ -13,5 +13,14 @@ trends = pd.DataFrame(data['trends']['kalmanSmooth'])
 trends_parties = pd.DataFrame(trends['parties'].tolist())
 full_trends = pd.concat([trends, trends_parties], axis=1).drop(columns=['parties'])
 
+starmer = full_trends[['date','approve_starmer','disapprove_starmer']]
+starmer['date'] = pd.to_datetime(starmer['date'])
+starmer = starmer.set_index('date')
+
+starmer = starmer.loc['2024-07-12':]
+starmer.columns = ['Approve','Disapprove']
+starmer
+
+
 output_path = "approval-rating-UK.csv"
-full_trends.to_csv(output_path, index=False)
+starmer.to_csv(output_path, index=False)
