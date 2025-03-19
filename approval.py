@@ -53,6 +53,6 @@ full_trends = full_trends.set_index('date')
 last_trends = full_trends.loc['2024-07-12':]
 last_trends.columns = ['Conservative','Labour', 'Lib Dem', 'UKIP', 'Green', 'SNP', 'Plaid','Reform','ChangeUK']
 last_trends.to_csv('uk-polls.csv')
-all_trends = full_trends.copy()
+all_trends = full_trends.loc['2018-01-01':]
 all_trends.columns = ['Conservatives','Labour', 'Lib Dem', 'UKIP', 'Green', 'SNP', 'Plaid','Reform','ChangeUK']
 all_trends.to_csv('uk-polls-all.csv')
