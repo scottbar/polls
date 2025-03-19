@@ -50,6 +50,9 @@ trends_parties = pd.DataFrame(trends['parties'].tolist())
 full_trends = pd.concat([trends, trends_parties], axis=1).drop(trends.columns[1], axis=1)
 full_trends['date'] = pd.to_datetime(full_trends['date'])
 full_trends = full_trends.set_index('date')
-full_trends = full_trends.loc['2024-07-12':]
-full_trends.columns = ['Conservative','Labour', 'Lib Dem', 'UKIP', 'Green', 'SNP', 'Plaid','Reform','ChangeUK']
-full_trends.to_csv('uk-polls.csv')
+last_trends = full_trends.loc['2024-07-12':]
+last_trends.columns = ['Conservative','Labour', 'Lib Dem', 'UKIP', 'Green', 'SNP', 'Plaid','Reform','ChangeUK']
+last_trends.to_csv('uk-polls.csv')
+all_trends = full_trends.copy()
+all_trends.columns = ['Conservatives','Labour', 'Lib Dem', 'UKIP', 'Green', 'SNP', 'Plaid','Reform','ChangeUK']
+all_trends.to_csv('uk-polls-all.csv')
