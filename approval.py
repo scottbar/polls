@@ -39,8 +39,8 @@ full_polls = pd.concat([polls, polls_parties], axis=1).drop(polls.columns[1], ax
 
 # Pivot longer (melt) to reshape the data
 working_polls = full_polls.melt(
-    id_vars=[col for col in full_polls.columns if col not in ["Con", "ChUK"]],
-    value_vars=["Con", "ChUK"],
+    id_vars=[col for col in full_polls.columns if col not in ["Con", "ChUK_2019"]],
+    value_vars=["Con", "ChUK_2019"],
     var_name="parties",
     value_name="value"
 )
